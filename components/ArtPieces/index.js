@@ -1,11 +1,22 @@
-export default function ArtPieces({ image, title, artist }) {
+import Image from "next/image";
+
+export default function ArtPieces({ pieces }) {
   return (
-    <section className="Gallery">
-      <div>
-        <img>{image} </img>
-        <h2> {title}</h2>
-        <p>{artist}</p>
-      </div>
-    </section>
+    <>
+      {pieces.map((piece) => {
+        return (
+          <div key={piece.slug} className="art-piece">
+            <Image
+              src={piece.imageSource}
+              width={200}
+              height={300}
+              alt="artpiece"
+            />
+            <h2> {piece.name}</h2>
+            <p>{piece.artist}</p>
+          </div>
+        );
+      })}
+    </>
   );
 }
