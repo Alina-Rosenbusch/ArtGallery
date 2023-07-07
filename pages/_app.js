@@ -1,8 +1,7 @@
 import GlobalStyle from "../styles";
-import { SWRConfig } from "swr";
+
 import useSWR from "swr";
 import Header from "@/components/Header";
-
 import Layout from "@/components/Layout";
 import "./global.css";
 
@@ -11,11 +10,10 @@ async function myFetcher(url) {
   const resData = await response.json();
   return resData;
 }
+const url = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
-  const url = "https://example-apis.vercel.app/api/art";
-
-  const { data, error, isLoading } = useSWR(url);
+  const { data, error, isLoading } = useSWR(url, myFetcher);
 
   if (error) {
     return <div> Error: {error.message}</div>;
@@ -27,11 +25,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <SWRConfig value={{ fetcher: myFetcher }}>
-        <Header />
-        <Component {...pageProps} pieces={data} />
-        <Layout />
-      </SWRConfig>
+      <Header />
+      <Component {...pageProps} pieces={data} />
+      <Layout />
     </>
   );
 }
