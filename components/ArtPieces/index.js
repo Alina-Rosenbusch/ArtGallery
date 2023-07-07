@@ -12,7 +12,7 @@ export default function ArtPieces({ pieces }) {
               height={300}
               alt="artpiece"
             />
-            <h2> {piece.name}</h2>
+            <h2>{piece.name}</h2>
             <p>{piece.artist}</p>
           </div>
         );

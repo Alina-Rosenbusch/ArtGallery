@@ -45,7 +45,7 @@
 }
 
 .art-piece {
-  margin-top: 2rem;
+  margin: 4rem 0;
   padding: 2rem 0.5rem 1rem 0.5rem;
   background-color: #ccccccab;
   border-radius: 1rem;
@@ -67,7 +67,7 @@
   font-size: 1rem;
 }
 
-.art-piece p{
+.art-piece p {
   margin-top: 0.2rem;
   font-size: 0.8rem;
 }
